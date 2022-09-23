@@ -1,23 +1,26 @@
 import logo from './logo.svg';
-import './App.css';
-
+import Navbar from './component/Navbar'
+import Footer from './component/Footer'
+import JsonFormatter from './component/main/JsonFormatter'
+import JsonToArray from './component/main/JsonToArray'
+import AboutUs from './component/main/AboutUs'
+import ContactUs from './component/main/ContactUs'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// https://www.geeksforgeeks.org/how-to-create-a-multi-page-website-using-react-js/
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+            <Navbar/>
+       <Routes>
+			<Route exact path='/' exact element={<JsonFormatter />} />
+			<Route path='/json-to-php-array' element={<JsonToArray/>} />
+	        <Route path='/about-us' element={<AboutUs/>} />
+	        <Route path='/contact-us' element={<ContactUs/>} />
+	    </Routes>
+      <Footer/>
+    </Router>
+
     </div>
   );
 }

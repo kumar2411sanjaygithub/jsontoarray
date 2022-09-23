@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json to Array</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="./assests/css/jsontoarraystyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-- Nav Bar-->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light navbg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="color:white;font-weight: 600;font-size: 25px;">{<i style="color:green">Json</i><i>To</i><i style="color:red">Array</i>} </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="./json-formatter.html">JSON Formatter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./xml-formatter.html">XML Formatter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">JSON Validator</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">JSON to Array Converter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <h3 class="text-center">
+                 JSON Formatter
+            </h3>
+            <div class="col-md-4 offset-md-4">
+                <div class="alert alert-success" role="alert" style="display: none; " id="successalertMsg">
+                    <p id="succMsg"></p>
+                </div>
+                <div class="alert alert-danger" role="alert" style="display: none; " id="dangeralertMsg">
+                    <p id="dangMsg"></p>
+                </div>
+            </div>
+            <main class="" style="height: 90vh;margin-top:50px">
+                <div class="row">
+                    <div class="col-md-5">
+                        <span>
+                            <a href="#" onclick="SampleJSON()"vdata-toggle="tooltip" data-placement="bottom" title="Sample JSON Data"><i class="text-center">Sample Data</i></a>&nbsp;
+                            <a href="#" onclick="CopyEditor(1)" data-toggle="tooltip" data-placement="bottom" title="Copy to Clipboard"><i class="fa fa-copy"></i></a>&nbsp;
+                            <a href="#" onclick="ClearEditor(1)" data-toggle="tooltip" data-placement="bottom" title="Clear"><i class="fa fa-close"></i></a>
+                        </span>
+                        <div id='editor' class="ace-editor-custom"></div>
+                    </div>
+                    <div class="col-md-2 centerDiv">
+                        <div class="" style="text-align: center;">
+                            <div class="row mt-5">
+                                <div class="col-md-6">
+                                    <div clas="file_input_wrap">
+                                        <input type="file" name="imageUpload" id="imageUpload" onchange="previewFile(this);" class="hide" />
+                                        <label for="imageUpload" class="btn btn-secondary"><i class="fa fa-upload" aria-hidden="true"></i> File</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-secondary" id="getURL"  data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-paperclip" aria-hidden="true"></i> URL</button>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <!-- <div class="modal fade" id="myModal" role="dialog"> -->
+                                <div class="modal-dialog">
+                                  <!-- Modal content-->
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Load External URL</h4>
+                                      <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                                    </div>
+                                    <form method="post" id="target">
+                                    <div class="modal-body">
+                                      <div class="row my-2">
+                                        <div class="col-lg-12 col-md-12 col-12 mx-auto">
+                                          <label class="form-label" style="float: left;">URL</label>
+                                          <div class="input-group input-group-outline">
+                                            <input type="text" name="url" id="url"  class="form-control" required>
+                                          </div>
+                                        </div>
+                                      </div> 
+                                    </div>
+                                    <div class="modal-footer">
+                                      <div class="row my-2">
+                                        <div class="col-lg-8 col-sm-8 col-12">
+                                          <button class="btn btn-success w-100 mb-0 toast-btn" type="submit">Load JSON</button>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-4 col-12 mt-lg-0 mt-2">
+                                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </form>
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                              <!--- Model End-->
+                        </div>
+                        <div class="btnDiv">
+                            <button type="button" class="btn btn-info  btn-lg" style="width:200px" id="convert">Format / Beautify</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <span>
+                            <i class="text-center">Result</i>&nbsp;
+                            <a onclick="CopyEditor(2)"><i class="fa fa-copy"></i></a>&nbsp;
+                            <a onclick="ClearEditor(2)"><i class="fa fa-close"></i></a>
+                        </span>
+                        <div id='editor2' class="ace-editor-custom"></div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <h3 class="text-center">
+                 About Json Formatter
+            </h3>
+            <main class="" style="height: 90vh;margin-top:50px">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <p>JsonToArray is the online tool to format, parse, view, validate, edit, and beautify JSON data in real time.</p>
+                        <!-- <p>The tool also allows you to upload a .json or .txt file containing JSON data. It reads the file and automatically fills the editor with the file’s contents. Moreover, there are various other controls provided in the settings toolbar to clear, copy, minify, prettify, and download JSON data from the editor.</p> -->
+                        <p><b>JSON Formatter features</b></p>
+                        <ul>
+                                <li>Json Formatter uses $.parseJSON and JSON.stringify to beautify JSON easy to read and analyze.</li>
+                                <li>It helps to validate JSON online with error Messages and show the error line number.</li>
+                                <li>It allows you to beatify or prettify a compact JSON and indents it properly for easier reading.</li>
+                                <li>It supports live JSON formatting. You just need to type the JSON in the left editor and you can see a formatted JSON data in the right editor.</li>
+                                <!-- <li>JSON File Formatter provides functionality to upload JSON file and download formatted JSON File. This functionality helps to format json file.</li> -->
+                        </ul>
+                        <p><b>Know more about JSON.</p></b>
+                        <ul>
+                            <li><a href="https://www.json.org/json-en.html">What is JSON?</a></li>
+                            <li><a href="https://www.freecodecamp.org/news/what-is-a-json-file-example-javascript-code/">What is JSON file?</a></li>
+                            <li><a href="https://json.org/example.html">JSON Examples</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- Nav Bar-->
+    <footer class="bottom-strip text-white text-center">
+        <div class="container-fluid">
+            <div class="row">
+                <ul class="nav justify-content-center border-bottom ulfooter">
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact us</a></li>
+                  <!-- <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li> -->
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                </ul>
+                <p class="mb-0">
+                    @2022 | V1.0.0 Develop and Design by jsontoarray.com
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.10.0/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.10.0/theme-monokai.min.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    // editor.setTheme("ace/theme/monokai");
+    editor.setOptions({
+        autoScrollEditorIntoView: true,
+        copyWithEmptySelection: true,
+        hScrollBarAlwaysVisible: false, // boolean: true if the horizontal scroll bar should be shown regardless
+        vScrollBarAlwaysVisible: true,
+        fontSize: 15,
+        wrap: true,
+        fontFamily: undefined,
+        mode: 'ace/mode/json',
+        fadeFoldWidgets: false, // boolean: true if the fold lines should be faded
+        showFoldWidgets: true,
+    });
+    var editor2 = ace.edit("editor2");
+    // editor2.setTheme("ace/theme/terminal");
+    editor2.setOptions({
+        wrap: true,
+        fontSize: 15, // number | string: set the font size to this many pixels
+        fontFamily: undefined,
+        showLineNumbers: true,
+        // theme: 'ace/theme/terminal',  //cobalt,terminal,textmate
+        mode: 'ace/mode/json',
+        fadeFoldWidgets: false, // boolean: true if the fold lines should be faded
+        showFoldWidgets: true,
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#convert').click(function(){
+            let editor = ace.edit("editor");
+            let editor2 = ace.edit("editor2");
+            let editordata = editor.getValue();
+            if(editordata)
+            {
+                try {
+                    // $("#dangMsg").html("<span class='text-center'></span");
+                    $('#dangeralertMsg').hide()
+                    editor.setValue(editordata);
+                    editor2.setValue(JSON.stringify(JSON.parse(editordata), null, 4));
+
+                } catch (e) {
+                    // console.log(e.message);
+                    // alert(e.message)
+                    $("#dangMsg").html("<span class='text-center'>"+e.message+"</span");
+                    $('#dangeralertMsg').show()
+                    setTimeout(function(){
+                        $('#dangeralertMsg').hide();
+                        // $("#dangeralertMsg").append("");
+                    },2000)  
+                }
+            }
+            else
+                // alert('JSON data is not valid.')
+                $("#dangMsg").html("<span class='text-center'>JSON data is not valid.</span>");
+                $('#dangeralertMsg').show()
+                setTimeout(function(){
+                    $('#dangeralertMsg').hide();
+                    // $("#dangeralertMsg").append("");
+                },2000)     
+        })
+    })
+</script>
+<script type="text/javascript"  src="./assests/js/jsontoarray.js"></script>
+</html>
