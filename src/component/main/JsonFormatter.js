@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AceEditor from "react-ace";
 import Alertmsg from '../Alertmsg'
+import Helmet from 'react-helmet';
 
 const JsonFormatter = () =>{
 	const [ editor, setEditor ] = useState('')
@@ -132,6 +133,23 @@ const JsonFormatter = () =>{
 
 	return(
 		<>
+			<Helmet>
+				<title>JSON Formatter &amp; Validator</title>
+				<meta name="description" content="Online JSON Formatter / Beautifier and JSON Validator will format JSON data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON" />
+				<meta name="keywords" content="json formatter, json beautifier, json validator, validate json, online json formatter, json validate, json validate online, online json validate, json formatter online, json beautify,beautify json, JSON Checker, json converter, json format, json online format, format json online" />
+				
+				{/* <meta property="og:title" content="JSON Formatter &amp; Validator" />
+				<meta property="og:description" content="Online JSON Formatter / Beautifier and JSON Validator will format JSON data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON" />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="http://jsontoarray.com" />
+				<meta property="og:image" content="http://jsontoarray.com/assests/img/logo.png" />
+
+				<meta name="twitter:site" content="@jsontoarray" />
+				<meta name="twitter:title" content="JSON Formatter &amp; Validator" />
+				<meta name="twitter:description" content="Online JSON Formatter / Beautifier and JSON Validator will format JSON data, and helps to validate, convert JSON to XML, JSON to CSV. Save and Share JSON" />
+				<meta name="twitter:image" content="http://jsontoarray.com/assests/img/logo.png" />
+				<meta name="twitter:card" content="summary_large_image" /> */}
+            </Helmet>
 		    <div className="container-fluid">
 		        <div className="row mt-5">
 		            <h3 className="text-center">

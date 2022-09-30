@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import AceEditor from "react-ace";
 import Alertmsg from '../Alertmsg'
+import Helmet from 'react-helmet';
 
 const JsonToArray = () =>{
 	const [ editor, setEditor ] = useState('')
@@ -141,6 +142,24 @@ const JsonToArray = () =>{
 	}
 	return(
 		<>
+			<Helmet>
+				<title>JSON To PHP Array Converter Online</title>
+				<meta name="keywords" content="json to array, jsonarray, json2array, json to php array, json 2 array, json to php array converter,json to php array converter online,json to php object converter, json to php converter online" />
+				<meta name="description" content="JSON to PHP array converter online | Convert the given JSON into format PHP array, which can be used instantly into your PHP as a PHP array." />
+
+				{/* <meta property="og:title" content="JSON To PHP Array Converter Online" />
+				<meta property="og:description" content="JSON to PHP array converter online | Convert the given JSON into format PHP array, which can be used instantly into your PHP as a PHP array." />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="http://jsontoarray.com" />
+				<meta property="og:image" content="http://jsontoarray.com/assests/img/logo.png" />
+
+				<meta name="twitter:site" content="@jsontoarray" />
+				<meta name="twitter:title" content="JSON To PHP Array Converter Online" />
+				<meta name="twitter:description" content="JSON to PHP array converter online | Convert the given JSON into format PHP array, which can be used instantly into your PHP as a PHP array." />
+				<meta name="twitter:image" content="http://jsontoarray.com/assests/img/logo.png" />
+				<meta name="twitter:card" content="summary_large_image" /> */}
+
+            </Helmet>
 		    <div className="container-fluid">
 		        <div className="row mt-5">
 		            <h3 className="text-center">
